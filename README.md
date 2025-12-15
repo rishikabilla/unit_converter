@@ -19,18 +19,15 @@ A simple Flask-based unit converter that supports:
 
 ## Project Structure
 
-unit_converter/
-│
-├── main.py                  # Flask app entry point
-├── README.md
-│
-├── templates/
-│   ├── index.html
-│   ├── weight.html
-│   └── temp.html
-│
-├── static/
-│   └── style.css
+- main.py
+- README.md
+- templates/
+  - index.html
+  - weight.html
+  - temp.html
+- static/
+  - style.css
+
 
 
 ## How to Run
