@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - Length</title>
+</head>
+<body>
+    <a href="{{url_for('length')}}">Length</a>
+    <a href="{{url_for('weight')}}">Weight</a>
+    <a href="{{url_for('temp')}}">Temperature</a>
+    <form method="post" action="{{url_for('length')}}">
+        <label for="length">Enter length to convert</label>
+        <input type="number" step="any" name="length">
+        <br>
+        <br>
+        <label for="from">Unit to convert from</label>
+        <select name="from" required>
+            <option value="mm">mm</option>
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+            <option value="km">km</option>
+            <option value="inch">inch</option>
+            <option value="foot">foot</option>
+            <option value="yard">yard</option>
+            <option value="mile">mile</option>
+        </select>
+        <br>
+        <br>
+        <label for="to">Unit to convert to</label>
+        <select name="to" required>
+            <option value="mm">mm</option>
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+            <option value="km">km</option>
+            <option value="inch">inch</option>
+            <option value="foot">foot</option>
+            <option value="yard">yard</option>
+            <option value="mile">mile</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Convert">
+
+    </form>
+</body>
+</html>
