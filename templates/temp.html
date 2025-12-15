@@ -9,5 +9,27 @@
     <a href="{{url_for('length')}}">Length</a>
     <a href="{{url_for('weight')}}">Weight</a>
     <a href="{{url_for('temp')}}">Temperature</a>
+    <form method="post" action="{{url_for('temp')}}">
+        <label for="length">Enter Temperature to convert</label>
+        <input type="number" step="any" name="temp">
+        <br>
+        <br>
+        <label for="from">Unit to convert from</label>
+        <select name="from" required>
+            <option value="C">Celcius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+        </select>
+        <br>
+        <br>
+        <label for="to">Unit to convert to</label>
+        <select name="to" required>
+            <option value="C">Celcius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Convert">
 </body>
 </html>
