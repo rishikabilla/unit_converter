@@ -21,8 +21,8 @@ def length():
         to_unit=request.form["to"]
         # Using meter as the base unit allows conversion between any two units
         # with a single formula: value * from_factor / to_factor
-        result=f"{length*length_factors[from_unit]/length_factors[to_unit]} {to_unit}"
-        return render_template("result.html",result=result)
+        result=length*length_factors[from_unit]/length_factors[to_unit]
+        return render_template("result.html",result=result,unit=to_unit)
 #defining the route for weight conversion page
 @app.route("/weight-conversion",methods=["GET","POST"])
 def weight():
@@ -41,13 +41,40 @@ def weight():
         to_unit=request.form["to"]
         # Using gram as the base unit allows conversion between any two units
         # with a single formula: value * from_factor / to_factor
-        result=f"{weight*weight_factors[from_unit]/weight_factors[to_unit]} {to_unit}"
-        return render_template("result.html",result=result)
+        result=weight*weight_factors[from_unit]/weight_factors[to_unit]
+        return render_template("result.html",result=result,unit=to_unit)
     
 @app.route("/temperature-conversion",methods=["GET","POST"])
 def temp():
     if request.method=="GET":
         return render_template("temp.html")
+    if request.method=="POST":
+        temp=request.form.get("temp")
+        from_unit=request.form["from"]
+        to_unit=request.form["to"]
+        if from_unit==to_unit:
+            result=temp
+            return render_template("result.html",result=result,unit=to_unit)
+        
+        #Converting to base Temp Celcius first
+        if from_unit=="C":
+            c=temp
+        elif from_unit=="F":
+            c=(temp-32)*5/9
+        elif from_unit=="K":
+            c=temp-273.15
+       
+
+        # Convert from Celsius to target unit
+        if to_unit=="C":
+            result=c
+        elif to_unit == "F":
+            result=(c * 9/5) + 32
+        elif to_unit == "K":
+            result=c + 273.15
+        return render_template("result.html",result=result,unit=to_unit)
+
+
 
 
 if __name__=="__main__":

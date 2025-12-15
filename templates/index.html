@@ -11,7 +11,7 @@
     <a href="{{url_for('temp')}}">Temperature</a>
     <form method="post" action="{{url_for('length')}}">
         <label for="length">Enter length to convert</label>
-        <input type="number" step="any" name="length">
+        <input type="number" step="any" name="length" required>
         <br>
         <br>
         <label for="from">Unit to convert from</label>
