@@ -22,7 +22,7 @@ def length():
         # Using meter as the base unit allows conversion between any two units
         # with a single formula: value * from_factor / to_factor
         result=length*length_factors[from_unit]/length_factors[to_unit]
-        return render_template("result.html",result=result,unit=to_unit)
+        return render_template("index.html",result=result,unit=to_unit)
 #defining the route for weight conversion page
 @app.route("/weight-conversion",methods=["GET","POST"])
 def weight():
@@ -42,7 +42,7 @@ def weight():
         # Using gram as the base unit allows conversion between any two units
         # with a single formula: value * from_factor / to_factor
         result=weight*weight_factors[from_unit]/weight_factors[to_unit]
-        return render_template("result.html",result=result,unit=to_unit)
+        return render_template("weight.html",result=result,unit=to_unit)
     
 @app.route("/temperature-conversion",methods=["GET","POST"])
 def temp():
@@ -54,7 +54,7 @@ def temp():
         to_unit=request.form["to"]
         if from_unit==to_unit:
             result=temp
-            return render_template("result.html",result=result,unit=to_unit)
+            return render_template("temp.html",result=result,unit=to_unit)
         
         #Converting to base Temp Celcius first
         if from_unit=="C":
@@ -72,10 +72,7 @@ def temp():
             result=(c * 9/5) + 32
         elif to_unit == "K":
             result=c + 273.15
-        return render_template("result.html",result=result,unit=to_unit)
-
-
-
+        return render_template("temp.html",result=result,unit=to_unit)
 
 if __name__=="__main__":
     app.run(debug=True)

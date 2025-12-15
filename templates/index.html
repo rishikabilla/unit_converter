@@ -41,7 +41,12 @@
         <br>
         <br>
         <input type="submit" value="Convert">
-
+     </form>
+     <form method="get">
+        <button type="submit">Reset</button>
     </form>
+    {% if result is not none %}
+    <h4>{{ result }} {{ unit }}</h4>
+    {% endif %}
 </body>
 </html>
