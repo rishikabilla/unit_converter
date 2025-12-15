@@ -75,4 +75,4 @@ def temp():
         return render_template("temp.html",result=result,unit=to_unit)
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(port=5000,debug=True)

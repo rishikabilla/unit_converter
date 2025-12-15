@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter-Temperature</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
 </head>
 <body>
+    <nav>
+    <h2>Unit Converter</h2>
     <a href="{{url_for('length')}}">Length</a>
     <a href="{{url_for('weight')}}">Weight</a>
     <a href="{{url_for('temp')}}">Temperature</a>
+    </nav>
     <form method="post" action="{{url_for('temp')}}">
         <label for="length">Enter Temperature to convert</label>
         <input type="number" step="any" name="temp" required>
